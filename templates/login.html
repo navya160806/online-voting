@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Voting System Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Wave Background & Floating Animation */
+        .wave-bg {
+            background: linear-gradient(180deg, rgba(255,153,51,0.15) 0%, rgba(255,255,255,1) 50%, rgba(19,136,8,0.15) 100%);
+            position: relative;
+        }
+
+        @keyframes float-slow {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes float-reverse {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(10px) rotate(-3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .floating-logo-1 { animation: float-slow 6s ease-in-out infinite; }
+        .floating-logo-2 { animation: float-reverse 7s ease-in-out infinite; }
+        .floating-logo-3 { animation: float-slow 5s ease-in-out infinite 1s; }
+        .floating-logo-4 { animation: float-reverse 8s ease-in-out infinite 0.5s; }
+        .floating-logo-5 { animation: float-slow 6.5s ease-in-out infinite 1.5s; }
+
+        /* Card Hover Effects */
+        .party-card {
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .party-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Carousel Layout styling */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 200%; /* Two sets of 3 cards */
+        }
+        .carousel-page {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+            width: 50%;
+            padding: 1rem;
+        }
+
+        /* Preamble Background Styling */
+        .preamble-section {
+            background: linear-gradient(rgba(241, 233, 216, 0.88), rgba(235, 223, 199, 0.92)), 
+                        url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Secure Login Styling */
+        .login-card {
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wave-bg min-h-screen py-12 px-4 md:px-12 flex flex-col justify-between relative">
+        
+        <div class="max-w-6xl mx-auto w-full flex justify-between items-center opacity-90 mb-8 pointer-events-none">
+            <div class="floating-logo-1 w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center p-2 border border-orange-400">
+                <i class="fa-solid fa-sun text-2xl text-orange-500"></i> </div>
+            <div class="floating-logo-2 w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center p-2 border border-green-500 mt-6">
+                <i class="fa-solid fa-hand text-2xl text-green-600"></i> </div>
+            <div class="floating-logo-3 w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center p-2 border-2 border-blue-500 -mt-4">
+                <i class="fa-solid fa-broom text-3xl text-blue-600"></i> </div>
+            <div class="floating-logo-4 w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center p-2 border border-blue-800 mt-8">
+                <i class="fa-solid fa-elephant text-2xl text-blue-900"></i> </div>
+            <div class="floating-logo-5 w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center p-2 border border-red-500">
+                <i class="fa-solid fa-hammer text-2xl text-red-600"></i> </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto w-full carousel-container my-auto">
+            <div class="carousel-track" id="carouselTrack">
+                
+                <div class="carousel-page">
+                    <div class="party-card bg-white rounded-2xl p-6 text-center shadow-lg border border-slate-100 flex flex-col justify-between">
+                        <div class="relative inline-block mx-auto mb-4">
+                            <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=200&h=200&q=80" alt="Narendra Modi" class="w-36 h-36 object-cover rounded-xl mx-auto border-2 border-orange-400">
+                            <span class="absolute -bottom-2 -right-2 bg-white w-10 h-10 rounded-full shadow border border-orange-500 flex items-center justify-center text-orange-500"><i class="fa-solid fa-sun"></i></span>
+                        </div>
+                        <p class="italic text-gray-600 text-sm md:text-base px-2 mb-4">"A strong India builds a better future for all."</p>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-lg">Narendra Modi</h3>
+                            <p class="text-xs text-orange-500 font-semibold tracking-wide uppercase">Bharatiya Janata Party</p>
+                            <div class="w-16 h-1 bg-orange-400 mx-auto mt-2 rounded"></div>
+                        </div>
+                    </div>
+
+                    <div class="party-card bg-white rounded-2xl p-6 text-center shadow-lg border border-slate-100 flex flex-col justify-between">
+                        <div class="relative inline-block mx-auto mb-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200&q=80" alt="Rahul Gandhi" class="w-36 h-36 object-cover rounded-xl mx-auto border-2 border-green-500">
+                            <span class="absolute -bottom-2 -right-2 bg-white w-10 h-10 rounded-full shadow border border-green-500 flex items-center justify-center text-green-600"><i class="fa-solid fa-hand"></i></span>
+                        </div>
+                        <p class="italic text-gray-600 text-sm md:text-base px-2 mb-4">"True progress comes with justice for every citizen."</p>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-lg">Rahul Gandhi</h3>
+                            <p class="text-xs text-green-600 font-semibold tracking-wide uppercase">Indian National Congress</p>
+                            <div class="w-16 h-1 bg-green-500 mx-auto mt-2 rounded"></div>
+                        </div>
+                    </div>
+
+                    <div class="party-card bg-white rounded-2xl p-6 text-center shadow-lg border border-slate-100 flex flex-col justify-between">
+                        <div class="relative inline-block mx-auto mb-4">
+                            <img src="https://images.unsplash.com/photo-1628157582853-a796fa650a6a?auto=format&fit=crop&w=200&h=200&q=80" alt="Arvind Kejriwal" class="w-36 h-36 object-cover rounded-xl mx-auto border-2 border-blue-500">
+                            <span class="absolute -bottom-2 -right-2 bg-white w-10 h-10 rounded-full shadow border border-blue-500 flex items-center justify-center text-blue-600 font-bold text-xs">aap</span>
+                        </div>
+                        <p class="italic text-gray-600 text-sm md:text-base px-2 mb-4">"Education is the foundation of a stronger nation."</p>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-lg">Arvind Kejriwal</h3>
+                            <p class="text-xs text-blue-600 font-semibold tracking-wide uppercase">Aam Aadmi Party</p>
+                            <div class="w-16 h-1 bg-blue-500 mx-auto mt-2 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-page">
+                    <div class="party-card bg-white rounded-2xl p-6 text-center shadow-lg border border-slate-100 flex flex-col justify-between">
+                        <div class="relative inline-block mx-auto mb-4">
+                            <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=200&h=200&q=80" alt="Mayawati" class="w-36 h-36 object-cover rounded-xl mx-auto border-2 border-blue-800">
+                            <span class="absolute -bottom-2 -right-2 bg-white w-10 h-10 rounded-full shadow border border-blue-900 flex items-center justify-center text-blue-900"><i class="fa-solid fa-cloud"></i></span>
+                        </div>
+                        <p class="italic text-gray-600 text-sm md:text-base px-2 mb-4">"Empowerment for all down-trodden sectors equally."</p>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-lg">Mayawati</h3>
+                            <p class="text-xs text-blue-900 font-semibold tracking-wide uppercase">Bahujan Samaj Party</p>
+                            <div class="w-16 h-1 bg-blue-900 mx-auto mt-2 rounded"></div>
+                        </div>
+                    </div>
+
+                    <div class="party-card bg-white rounded-2xl p-6 text-center shadow-lg border border-slate-100 flex flex-col justify-between">
+                        <div class="relative inline-block mx-auto mb-4">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&h=200&q=80" alt="Mamata Banerjee" class="w-36 h-36 object-cover rounded-xl mx-auto border-2 border-emerald-600">
+                            <span class="absolute -bottom-2 -right-2 bg-white w-10 h-10 rounded-full shadow border border-emerald-600 flex items-center justify-center text-emerald-600"><i class="fa-solid fa-leaf"></i></span>
+                        </div>
+                        <p class="italic text-gray-600 text-sm md:text-base px-2 mb-4">"Ma, Mati, Manush: Grounded governance for progress."</p>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-lg">Mamata Banerjee</h3>
+                            <p class="text-xs text-emerald-600 font-semibold tracking-wide uppercase">All India Trinamool Congress</p>
+                            <div class="w-16 h-1 bg-emerald-600 mx-auto mt-2 rounded"></div>
+                        </div>
+                    </div>
+
+                    <div class="party-card bg-white rounded-2xl p-6 text-center shadow-lg border border-slate-100 flex flex-col justify-between">
+                        <div class="relative inline-block mx-auto mb-4">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&h=200&q=80" alt="Sitaram Yechury" class="w-36 h-36 object-cover rounded-xl mx-auto border-2 border-red-600">
+                            <span class="absolute -bottom-2 -right-2 bg-white w-10 h-10 rounded-full shadow border border-red-600 flex items-center justify-center text-red-600"><i class="fa-solid fa-hammer"></i></span>
+                        </div>
+                        <p class="italic text-gray-600 text-sm md:text-base px-2 mb-4">"Protecting the rights of the working class always."</p>
+                        <div>
+                            <h3 class="font-bold text-gray-800 text-lg">D. Raja</h3>
+                            <p class="text-xs text-red-600 font-semibold tracking-wide uppercase">Communist Party of India</p>
+                            <div class="w-16 h-1 bg-red-600 mx-auto mt-2 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="text-center text-gray-500 text-xs tracking-wider uppercase mt-6">
+            <p class="mb-1">Scroll Down to Continue</p>
+            <i class="fa-solid fa-arrow-down animate-bounce bg-white p-2 rounded-full shadow-sm"></i>
+        </div>
+    </div>
+
+    <div class="preamble-section py-20 px-4 md:px-12 flex flex-col items-center justify-center border-t border-amber-200">
+        
+        <div class="max-w-3xl text-center mb-12 px-4">
+            <div class="w-20 h-28 mx-auto mb-4 flex items-center justify-center opacity-85">
+                <i class="fa-solid fa-building-columns text-5xl text-amber-800"></i>
+            </div>
+            
+            <h1 class="text-3xl md:text-4xl font-bold text-amber-900 tracking-widest mb-2">OUR CONSTITUTION</h1>
+            <p class="text-2xl italic font-semibold text-amber-800 mb-4">“We, the People of India...”</p>
+            <p class="text-amber-950 font-serif leading-relaxed text-sm md:text-base opacity-90 max-w-xl mx-auto mb-6">
+                We, the People of India, having solemnly resolved to constitute India into a Sovereign Socialist Secular Democratic Republic...
+            </p>
+            
+            <button class="bg-amber-800/10 hover:bg-amber-800/20 text-amber-900 border border-amber-800 px-5 py-2 rounded-full font-serif text-xs uppercase tracking-wider transition inline-flex items-center gap-2 font-semibold">
+                <i class="fa-solid fa-book-open"></i> Read the Constitution
+            </button>
+        </div>
+
+        <div class="login-card w-full max-w-md rounded-2xl shadow-2xl p-8 relative overflow-hidden">
+            
+            <div class="absolute top-0 left-0 right-0 h-2 bg-blue-600"></div>
+            
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-blue-600 text-white rounded-xl mx-auto flex items-center justify-center shadow-md shadow-blue-200 mb-3">
+                    <i class="fa-solid fa-lock text-xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-800 tracking-wide uppercase">Secure Login</h2>
+                <p class="text-sm text-slate-500 italic mt-0.5">Welcome to E-Voting System</p>
+            </div>
+
+            <form id="loginForm" class="space-y-4">
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                        <i class="fa-solid fa-user text-sm"></i>
+                    </span>
+                    <input type="text" id="userId" required
+                        class="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" 
+                        placeholder="Aadhaar / Voter ID">
+                </div>
+
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                        <i class="fa-solid fa-lock text-sm"></i>
+                    </span>
+                    <input type="password" id="password" required
+                        class="w-full pl-10 pr-10 py-2.5 border border-slate-200 rounded-lg text-sm bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" 
+                        placeholder="Password">
+                    <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-eye text-sm" id="eyeIcon"></i>
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-between text-xs pt-1">
+                    <label class="flex items-center text-slate-600 cursor-pointer select-none">
+                        <input type="checkbox" class="rounded border-slate-300 text-blue-600 focus:ring-blue-500 mr-1.5 w-4 h-4">
+                        Remember Me
+                    </label>
+                    <a href="#" class="text-blue-600 hover:underline font-medium">Forgot Password?</a>
+                </div>
+
+                <button type="submit" 
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg text-sm tracking-wide uppercase shadow-lg shadow-blue-200 transition-all duration-150 transform active:scale-[0.99] mt-2">
+                    Login
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        // --- 1. INFINITE AUTO-ROTATING CAROUSEL SCRIPT ---
+        const track = document.getElementById('carouselTrack');
+        let isPageOne = true;
+
+        setInterval(() => {
+            if (isPageOne) {
+                // Move track leftwards to reveal Page 2
+                track.style.transform = 'translateX(-50%)';
+            } else {
+                // Move back to initial layout to reveal Page 1
+                track.style.transform = 'translateX(0%)';
+            }
+            isPageOne = !isPageOne;
+        }, 3000); // Transitions every 3000 milliseconds (3 seconds)
+
+
+        // --- 2. PASSWORD VISIBILITY TOGGLE ---
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+
+
+        // --- 3. BASIC FORM SUBMISSION HANDLER ---
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('userId').value;
+            alert(`Attempting secure connection validation for ID: ${id}`);
+        });
+    </script>
+</body>
+</html>
