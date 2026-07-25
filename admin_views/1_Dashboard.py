@@ -4,6 +4,10 @@ import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
 
+import seed_database  # Import your seed script
+
+# --- Automatically prepare SQLite database on startup ---
+seed_database.seed_database()
 # Safety check: Initialize the key if Streamlit pre-runs this file out of order
 if "authenticated" not in st.session_state:
     st.session_state["authenticated"] = False
