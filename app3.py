@@ -87,6 +87,7 @@ login_page = st.Page(render_login_view, title="Security Gate", icon="🔒")
 dashboard = st.Page("admin_views/12_dashboard.py", title="Live Telemetry Dashboard", icon="📊", default=True)
 anomaly_eng = st.Page("admin_views/2_Anomaly_Engine.py", title="ML Threat Diagnostics", icon="📡")
 registry = st.Page("admin_views/3_Registry_Controls.py", title="Voter Registry & Hold Queue", icon="👥")
+notifications = st.Page("admin_views/5_Notifications.py", title="Live Alert Dispatcher", icon="🔔") # <-- ADDED THIS
 rag_desk = st.Page("admin_views/4_RAG_Legal_Desk.py", title="AI Legal & SOP Command", icon="🤖")
 
 # 5. Routing Execution Logic
@@ -97,6 +98,7 @@ else:
         "OVERVIEW": [dashboard],
         "CYBER DIAGNOSTICS": [anomaly_eng],
         "DATABASE ADMINISTRATION": [registry],
+        "COMMUNICATION HUB": [notifications], # <-- ADDED SECTION TO NAVIGATION
         "DECISION ASSISTANCE": [rag_desk]
     })
     
