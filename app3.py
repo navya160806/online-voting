@@ -105,6 +105,7 @@ else:
     # Render logout button cleanly at the base of the sidebar
     with st.sidebar:
         st.markdown("<br><br>", unsafe_allow_html=True)
+        
         if st.button("Disconnect Session", key="sidebar_logout_btn", use_container_width=True):
             st.session_state["authenticated"] = False
             st.rerun()
