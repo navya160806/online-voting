@@ -195,4 +195,5 @@ with bottom_col3:
                 <p style="font-size: 13px; margin: 0; color: #2D3748;">Isolation forest flagged borderline signature deviation</p>
             </div>
         </div>
+        
     """, unsafe_allow_html=True)
