@@ -118,6 +118,7 @@ with c4:
 # -------------------------------------------------------------------
 st.subheader(" Political Party Vote Standings")
 
+
 parties_data = [
     {"name": "Progressive Alliance (PA)", "badge": "LEAD", "bg": "#8A2BE2", "votes": 48290, "share": 44.2, "color": "#8A2BE2"},
     {"name": "Democratic Coalition (DC)", "badge": "RUNNER UP", "bg": "#00E5FF", "votes": 39140, "share": 35.8, "color": "#00E5FF"},
