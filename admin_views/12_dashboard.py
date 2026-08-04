@@ -129,6 +129,7 @@ p1, p2, p3 = st.columns(3)
 cols = [p1, p2, p3]
 
 for i, p in enumerate(parties_data):
+    
     with cols[i]:
         np.random.seed(i + 10)
         spark_y = np.cumsum(np.random.randn(12) + 1) + (p["votes"] * 0.8)
