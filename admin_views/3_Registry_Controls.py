@@ -14,6 +14,7 @@ st.write("Review active signature integrity queues and override automated engine
 
 # Instantiate database session state dictionary if empty
 if "voter_db" not in st.session_state:
+    
     st.session_state["voter_db"] = pd.DataFrame([
         {"Voter ID": "V-10294", "Name": "Marcus Vance", "Precinct": "Region 4", "Signature Match": "65%", "Status": "Verification Hold"},
         {"Voter ID": "V-14920", "Name": "Elena Rostova", "Precinct": "Region 2", "Signature Match": "94%", "Status": "Verified Approved"},
