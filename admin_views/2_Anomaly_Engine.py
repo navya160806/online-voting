@@ -107,6 +107,7 @@ fig_simple = px.scatter(
     threat_df,
     x="Latency (ms)",
     y="Payload Size (KB)",
+    
     color="Threat Type",
     hover_data=["Session_ID", "Proxy Hops"],
     title="Flagged Threats Overview (High Response Time vs Payload Size)",
