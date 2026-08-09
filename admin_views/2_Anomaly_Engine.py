@@ -107,7 +107,7 @@ fig_simple = px.scatter(
     threat_df,
     x="Latency (ms)",
     y="Payload Size (KB)",
-    
+
     color="Threat Type",
     hover_data=["Session_ID", "Proxy Hops"],
     title="Flagged Threats Overview (High Response Time vs Payload Size)",
@@ -116,6 +116,7 @@ fig_simple = px.scatter(
 st.plotly_chart(fig_simple, use_container_width=True)
 
 # Table display with simple click actions
+
 st.write("#### Flagged Session Log")
 
 # Format for clean display
