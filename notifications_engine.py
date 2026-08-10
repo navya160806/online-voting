@@ -4,6 +4,7 @@ from datetime import datetime
 
 DB_PATH = "voting_system.db"
 
+
 def init_notification_db():
     """Ensure notification tracking table exists inside SQLite."""
     conn = sqlite3.connect(DB_PATH)
