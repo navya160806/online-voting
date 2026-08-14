@@ -82,13 +82,13 @@ st.divider()
 
 # --- Live Broadcast Audit History ---
 
-st.markdown("### 📜 Dispatch Logs & Transmission Audit")
+st.markdown ("### 📜 Dispatch Logs & Transmission Audit")
 
 
 recent_logs = fetch_recent_notifications(limit=10)
 
 if recent_logs:
-    
+
     log_df = pd.DataFrame(recent_logs, columns=["Alert Title", "Message Preview", "Target Group", "Sent Time", "Status"])
     st.dataframe(log_df, use_container_width=True, hide_index=True)
 else:
