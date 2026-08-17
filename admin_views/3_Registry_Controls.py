@@ -5,6 +5,7 @@ import streamlit as st
 # Safety check: Initialize the key if Streamlit pre-runs this file out of order
 if "authenticated" not in st.session_state:
     st.session_state["authenticated"] = False
+    
 if not st.session_state.get("authenticated", False):
     
     st.error("🔒 Unauthorized access. Please log in through the main portal.")
