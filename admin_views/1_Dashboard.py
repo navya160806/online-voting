@@ -193,6 +193,7 @@ with bottom_col3:
             <div class="threat-item" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0;">
                 <span style="font-size: 11px; color: #EF4444; font-weight: bold;">02:10 AM</span>
                 <p style="font-size: 13px; margin: 0; color: #2D3748;">Isolation forest flagged borderline signature deviation</p>
+            
             </div>
         </div>
         
