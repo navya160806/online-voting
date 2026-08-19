@@ -86,6 +86,7 @@ st.divider()
 st.markdown ("### 📜 Dispatch Logs & Transmission Audit")
 
 
+
 recent_logs = fetch_recent_notifications(limit=10)
 
 if recent_logs:
