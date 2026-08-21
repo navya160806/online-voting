@@ -115,6 +115,7 @@ fig_simple = px.scatter(
 )
 st.plotly_chart(fig_simple, use_container_width=True)
 
+
 # Table display with simple click actions
 
 st.write("#### Flagged Session Log")
