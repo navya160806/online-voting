@@ -109,6 +109,7 @@ fig_simple = px.scatter(
     y="Payload Size (KB)",
 
     color="Threat Type",
+    
     hover_data=["Session_ID", "Proxy Hops"],
     title="Flagged Threats Overview (High Response Time vs Payload Size)",
     color_discrete_map={"🤖 Coordinated Botnet": "#EF4444", "🚨 Suspicious Lone Outlier": "#F59E0B"}
