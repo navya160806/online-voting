@@ -111,6 +111,7 @@ rag_desk = st.Page("admin_views/4_RAG_Legal_Desk.py", title="AI Legal & SOP Comm
 
 # 5. DYNAMIC ROUTING ENGINE
 if not st.session_state["authenticated"]:
+    
     pg = st.navigation([login_page], position="hidden")
 else:
     pg = st.navigation({
