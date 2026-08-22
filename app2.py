@@ -106,6 +106,7 @@ login_page = st.Page(render_login_view, title="Security Gate", icon="🔒")
 dashboard = st.Page("admin_views/12_dashboard.py", title="Live Telemetry Dashboard", icon="📊", default=True)
 anomaly_eng = st.Page("admin_views/2_Anomaly_Engine.py", title="ML Threat Diagnostics", icon="📡")
 registry = st.Page("admin_views/3_Registry_Controls.py", title="Voter Registry & Hold Queue", icon="👥")
+
 rag_desk = st.Page("admin_views/4_RAG_Legal_Desk.py", title="AI Legal & SOP Command", icon="🤖")
 
 # 5. DYNAMIC ROUTING ENGINE
