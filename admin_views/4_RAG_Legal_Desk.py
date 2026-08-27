@@ -6,6 +6,7 @@ from google.genai import types
 # 1. PAGE SETUP & HEADER
 # -------------------------------------------------------------------
 st.title("🤖 AI Legal & SOP Command Center")
+
 st.caption("Direct System-Aware Q&A Console with Persistent Session Memory")
 
 # -------------------------------------------------------------------
