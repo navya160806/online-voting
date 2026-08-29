@@ -70,6 +70,7 @@ for message in st.session_state["chat_messages"]:
 # -------------------------------------------------------------------
 if user_prompt := st.chat_input("Ask about electoral laws, SOP protocols, or emergency guidelines..."):
     # Render user input instantly in chat UI
+    
     with st.chat_message("user", avatar="👤"):
         st.markdown(user_prompt)
     
