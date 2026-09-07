@@ -31,6 +31,7 @@ if not tables_df.empty:
     # Fetch existing data from the selected table
     df_existing = run_query(f"SELECT * FROM {selected_table}")
     
+    
     st.subheader(f"📊 Real Data from `{selected_table}`")
     if not df_existing.empty:
         st.dataframe(df_existing, use_container_width=True)
