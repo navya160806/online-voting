@@ -13,6 +13,7 @@ def run_query(query, params=()):
         return pd.DataFrame()
     try:
         with sqlite3.connect(DB_NAME, timeout=10) as conn:
+            
             return pd.read_sql_query(query, conn, params=params)
     except Exception as e:
         st.error(f"Database Query Error: {e}")
@@ -30,7 +31,7 @@ if not tables_df.empty:
     
     # Fetch existing data from the selected table
     df_existing = run_query(f"SELECT * FROM {selected_table}")
-    
+
     
     st.subheader(f"📊 Real Data from `{selected_table}`")
     if not df_existing.empty:
