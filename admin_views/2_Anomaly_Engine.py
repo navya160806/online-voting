@@ -78,7 +78,6 @@ def fetch_telemetry_data():
         # If dedicated metric columns don't exist or equal zero, parse the text inside 'details'
         if (lat == 0 and hops == 0 and p_size == 0) and ("details" in existing_cols) and pd.notna(row.get("details")):
             try:
-                
                 data = json.loads(row["details"])
                 lat = data.get("latency", 0)
                 hops = data.get("proxy_hops", 0)
