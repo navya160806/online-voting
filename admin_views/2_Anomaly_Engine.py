@@ -72,6 +72,7 @@ def fetch_telemetry_data():
 
     def extract_metrics(row):
         lat = row.get("latency", 0) if "latency" in existing_cols else 0
+        
         hops = row.get("proxy_hops", 0) if "proxy_hops" in existing_cols else 0
         p_size = row.get("payload_size", 0) if "payload_size" in existing_cols else 0
         
