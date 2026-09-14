@@ -72,6 +72,7 @@ if submit_btn:
     if title_input and message_input:
         
         dispatch_broadcast(title_input, message_input, cohort_select)
+        
         st.success(f"Custom alert successfully queued and dispatched to **{cohort_select}**!")
         st.toast(f"Dispatched: {title_input}", icon="📡")
         time.sleep(1)
