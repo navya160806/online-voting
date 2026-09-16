@@ -6,6 +6,7 @@ import os
 DB_NAME = "election_data.db"
 
 def run_query(query, params=()):
+    
     """Run read-only query against existing SQLite database."""
     if not os.path.exists(DB_NAME):
         
